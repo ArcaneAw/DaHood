@@ -1,0 +1,919 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/NEWUI/main/rayfield'))()
+local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vKhonshu/intro/main/ui"))()
+--NotifyLib.prompt('Play Da Hood with full security', 'Success', 2)
+
+local Window = Rayfield:CreateWindow({
+   Name = "DaHood-Enhanced",
+   LoadingTitle = "DaHood-Enhanced",
+   LoadingSubtitle = "By Arcane;",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Arciez"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "NRWDW38VqB", -- The Discord invite code, do not include discord.gg/
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "DaHood-Enhanced",
+      Subtitle = "Key System",
+      Note = "Key will be handed to you by myself",
+      FileName = "Arziec",
+      SaveKey = true,
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = "ArcaneW"
+   }
+})
+
+local Tab1 = Window:CreateTab("Main", 12494932220) -- Title, Image
+local Tab2 = Window:CreateTab("Miscs", 11397586606) -- Title, Image
+local Tab3 = Window:CreateTab("Anti-lock", 12668498268) -- Title, Image
+local Tab4 = Window:CreateTab("Anti-Configuration", 11397586606) -- Title, Image
+local Tab5 = Window:CreateTab("Resolver", 12494932220) -- Title, Image
+local Tab6 = Window:CreateTab("Info", 12668498268) -- Title, Image
+
+local Section = Tab1:CreateSection("Sliders")
+ local Slider = Tab1:CreateSlider({
+   Name = "Jump-Strafe",
+   Range = {1, 6},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 2,
+   Callback = function(x)
+    essex = x
+   end,
+})
+local Slider = Tab1:CreateSlider({
+   Name = "Fov",
+   Range = {70, 120},
+   Increment = 1,
+   Suffix = "Value",
+   CurrentValue = 0,
+   Callback = function(fov)
+     workspace.CurrentCamera.FieldOfView = fov 
+    end,
+ })
+ getgenv().enabled = false
+ game:GetService("RunService").heartbeat:Connect(function()
+    if enabled then
+        local Spin = Instance.new('BodyAngularVelocity');
+        Spin.Name = "wildddd";
+        Spin.Parent = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart;
+        Spin.MaxTorque = Vector3.new(0, (1/0), 0);
+        Spin.AngularVelocity = Vector3.new(0, getgenv().Speedy, 0);
+    
+        else
+        
+        for i,v in next, game:GetService('Players').LocalPlayer.Character.HumanoidRootPart:GetChildren() do
+            if v.Name == 'wildddd' then
+                v:Destroy();
+            end;
+        end;
+    end;
+end)
+local Slider = Tab1:CreateSlider({
+   Name = "Spinbot",
+   Range = {1, 300},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 2,
+   Callback = function(x)
+    getgenv().Speedy = x
+    end,
+ })
+ local Slider = Tab1:CreateSlider({
+   Name = "Fake-Lag",
+   Range = {1, 10},
+   Increment = 1,
+   Suffix = "Amount",
+   CurrentValue = 2,
+   Callback = function(x)
+    	SplitValue = x / 10
+		getgenv().FakeLagSpeed = SplitValue
+    end,
+ })
+local ColorPicker = Tab1:CreateColorPicker({
+    Name = "Gun-Color",
+    Color = Color3.fromRGB(255,255,255),
+    Callback = function(x)
+    nigger = x
+    end
+})
+ local Toggle = Tab1:CreateToggle({
+   Name = "Jump-Strafe",
+   CurrentValue = false,
+   Callback = function(x)
+    essex2 = x
+    while essex2 do
+    task.wait()
+    if game.Players.LocalPlayer.Character.Humanoid.MoveDirection.Magnitude > 0 and game.Players.LocalPlayer.Character.Humanoid:GetState() == Enum.HumanoidStateType.Freefall then
+        game.Players.LocalPlayer.Character:TranslateBy(game.Players.LocalPlayer.Character.Humanoid.MoveDirection / essex)
+        end
+    end
+   end,
+})
+local hookfun
+hookfun = hookfunction(wait, function(x)
+    if x == 1.5 and nocooldown then
+        return hookfun() end return hookfun(x)
+end)
+ local Toggle = Tab1:CreateToggle({
+   Name = "Jump-Cooldown",
+   CurrentValue = false,
+   Callback = function(x)
+        bhop = x
+    nocooldown = x
+    while bhop do
+        task.wait(1.5)
+        if game.Players.LocalPlayer.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Freefall then
+            game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+        end
+    end
+   end,
+})
+ local Toggle = Tab1:CreateToggle({
+   Name = "Spinbot",
+   CurrentValue = false,
+   Callback = function(x)
+    getgenv().enabled = x
+   end,
+})
+ local Toggle = Tab1:CreateToggle({
+   Name = "Fake-Lag",
+   CurrentValue = false,
+   Callback = function(e)
+    		FakeLag = false
+		getgenv().FakeLagSpeed = 0.000001
+		if e then
+			FakeLag = true
+			while FakeLag == true do
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+				wait(getgenv().FakeLagSpeed)
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+				wait()
+			end
+		else
+			FakeLag = false
+		end
+   end,
+})
+local Toggle = Tab1:CreateToggle({
+   Name = "GunColor-Toggle",
+   CurrentValue = false,
+   Callback = function(x)
+function checkifalive(player) --checks if the player is alive 
+    if player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health ~= 1 and player.Character:FindFirstChild("Head") then
+        return true
+    end
+end
+    nigger2 = x
+        while nigger2 do
+            if checkifalive(game.Players.LocalPlayer)  then
+        task.wait()
+        for _,v in pairs(game.Workspace.Ignored:GetChildren()) do
+            if v.Name == "BULLET_RAYS" then
+               for _,f in pairs(v:GetChildren()) do
+                   if f.Name == "GunBeam" then
+                         f.Color = ColorSequence.new{
+         ColorSequenceKeypoint.new(0, nigger),
+         ColorSequenceKeypoint.new(1, nigger),
+         ColorSequenceKeypoint.new(1, nigger)
+     }
+end
+end
+end
+end
+end
+end
+   end,
+})
+local Toggle = Tab1:CreateToggle({
+   Name = "Auto-Reload",
+   CurrentValue = false,
+   Callback = function(reload)
+    if reload == true then
+    getgenv().AutoReload = true
+while getgenv().AutoReload == true and game:GetService("RunService").Heartbeat:Wait() do
+if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool") then
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo") then
+                if game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):FindFirstChild("Ammo").Value <= 0 then
+                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Reload", game:GetService("Players").LocalPlayer.Character:FindFirstChildWhichIsA("Tool")) 
+                    wait(1)
+                end
+            end
+        end
+end
+    elseif reload == false then
+        getgenv().AutoReload = false
+        end
+   end,
+})
+local Section = Tab1:CreateSection("Actions")
+local Dropdown = Tab1:CreateDropdown({
+   Name = "Spoofers",
+   Options = {"Log","IP","Cleaner","Memory","Ping"},
+   CurrentOption = "None",
+   Callback = function(Options)
+    if Options == "Log" then
+        NotifyLib.prompt('Logs spoofed', 'Success', 2)
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/logspoof/main/deob'))()
+    elseif Options == "IP" then
+        NotifyLib.prompt('IP spoofed', 'Success', 2)
+        spoofedIP = "102.454.444"
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/GuizzyisbackV2LOL/HelloLua/main/looferrlua"))() 
+    elseif Options == "Cleaner" then
+        messagebox=messagebox or function(m,t) game:GetService("StarterGui"):SetCore("SendNotification",{Title=t,Text=m}) end
+listfiles = listfiles or listdir
+if not listfiles then messagebox("your exploit is incompatible","incompatible exploit") return end
+isfile = isfile or function(file) return (pcall(function() readfile(file) end)) end
+isfolder = isfolder or function() return false end
+local function getallfiles()
+    local t = {}
+    local function getfiles(folder)
+        for _,file in pairs(listfiles(folder)) do
+            if isfolder(file) then
+                getfiles(file)
+            else
+                table.insert(t,file)
+            end
+        end
+    end
+    getfiles("./")
+    return t
+end
+
+local function fixfile(path)
+    local old = readfile(path)
+    local file = old
+    local f = {file:find("http://ligma.wtf")}
+    while #f>0 do
+        local length = #file
+        local pstart,pend = (file:reverse():find(string.reverse("pcall"),length-f[1],true)),select(2,file:find("end)",f[2],true))
+        if pstart and pend then
+            file = file:sub(1,length-pstart-4)..file:sub(pend+1,length)
+        end
+        f = {file:find("http://ligma.wtf")}
+    end
+    if old~=file then writefile(path,file) return true end
+    return false
+end
+
+local failed,infected = {},0
+
+for _,file in pairs(getallfiles()) do
+    local r,f = pcall(fixfile,file)
+    if not r then
+        table.insert(failed,string.format("filename: %s error: %s",file,f))
+    elseif f then
+        infected+=1
+    end
+end
+
+local s = string.format("Found %s infected file%s%s%s",infected>0 and "and cleaned "..infected or infected,infected==1 and "" or "s",infected==0 and " (you were clean)" or "",#failed>0 and string.format(" %s of which failed to be fixed (check infected.txt for info on the files)",#failed) or "")
+if #failed>0 then writefile("infected.txt",table.concat(failed,"\n")) end
+messagebox(s,"Disinfection notice",#failed>0 and 16 or 32)
+    elseif Options == "Memory" then
+        NotifyLib.prompt('Memory spoofed', 'Success', 2)
+        local Settings = {
+            range1 = 500,
+            range2 = 800,}
+        
+        for __, v in pairs(game.CoreGui.RobloxGui.PerformanceStats:GetChildren()) do
+            if v.Name == "PS_Button" and v.StatsMiniTextPanelClass.TitleLabel.Text == "Mem" then
+                Memory = v.StatsMiniTextPanelClass.ValueLabel
+        end
+            end
+
+        Memory:GetPropertyChangedSignal("Text"):Connect(function()
+            local Random = math.random(Settings.range1,Settings.range2)
+            Random = Random * 1.23 
+            Memory.Text = "".. Random .." MB"
+        end) 
+    elseif Options == "Ping" then
+        NotifyLib.prompt('Ping spoofed', 'Success', 2)
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/GuizzyisbackV2LOL/PingWoofer-/main/LuaSourceV1'))()
+   end
+  end,
+})
+local Dropdown = Tab1:CreateDropdown({
+   Name = "Aim-Viewers",
+   Options = {"Vin","RayX"},
+   CurrentOption = "None",
+   Callback = function(Options)
+    if Options == "Vin" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nosssa/NossLock/main/VinGUI"))()
+    elseif Options == "RayX" then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/Raycodex/main/aimviewer"))()
+    end
+   end,
+})
+local Section = Tab2:CreateSection("Stopper")
+local Button = Tab2:CreateButton({
+   Name = "Stop-Process",
+   Callback = function()
+    getgenv().Enabled = false
+    getgenv().Enabled2 = false
+    getgenv().Orbit = false
+    game:GetService("Workspace").CurrentCamera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
+   end,
+})
+local Section = Tab2:CreateSection("Inputs")
+local Input = Tab2:CreateInput({
+   Name = "Upper-Player",
+   PlaceholderText = "Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(name)
+getgenv().Enabled = true
+game.RunService.RenderStepped:Connect(function()
+    if getgenv().Enabled == true then
+        game.Workspace.Camera.CFrame = game.Players[name].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 10)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[name].Character.HumanoidRootPart.CFrame * CFrame.new(5, 100, 50)
+        wait(0.0000000001)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[name].Character.HumanoidRootPart.CFrame * CFrame.new(0.5, 50, 25)
+    end
+end)
+   end,
+})
+local Input = Tab2:CreateInput({
+   Name = "Behind-Player",
+   PlaceholderText = "Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(name)
+       getgenv().Enabled2 =true
+        game.RunService.RenderStepped:Connect(function()
+    if getgenv().Enabled2 == true then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =game.Players[name].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 10)
+    end
+end)
+   end,
+})
+local Input = Tab2:CreateInput({
+   Name = "Teleport To Player",
+   PlaceholderText = "Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(name)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(name).Character.HumanoidRootPart.CFrame
+   end,
+})
+local Input = Tab2:CreateInput({
+   Name = "View Player",
+   PlaceholderText = "Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(name)
+    game:GetService("Workspace").CurrentCamera.CameraSubject = game:GetService("Players")[name].Character 
+   end,
+})
+local Input = Tab2:CreateInput({
+   Name = "Orbit",
+   PlaceholderText = "Name",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(name)
+    getgenv().Orbit = true
+while getgenv().Orbit == true do
+    for i = 0, 360, getgenv().Speed do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[name].Character.HumanoidRootPart.Position) * CFrame.Angles(0, math.rad(i), 0) * CFrame.new(0, getgenv().Height, getgenv().Distance)
+        task.wait()
+    end
+end
+   end,
+})
+local Section = Tab2:CreateSection("Sliders")
+ local Slider = Tab2:CreateSlider({
+   Name = "Orbit-Speed",
+   Range = {0.4, 4},
+   Increment = 0.1,
+   Suffix = "Speed",
+   CurrentValue = 0.4,
+   Callback = function(x)
+    getgenv().Speed = x
+   end,
+})
+ local Slider = Tab2:CreateSlider({
+   Name = "Orbit-Distance",
+   Range = {1, 30},
+   Increment = 1,
+   Suffix = "Distance",
+   CurrentValue = 10,
+   Callback = function(x)
+    getgenv().Distance = x
+   end,
+})
+ local Slider = Tab2:CreateSlider({
+   Name = "Orbit-Height",
+   Range = {1, 30},
+   Increment = 1,
+   Suffix = "Height",
+   CurrentValue = 2,
+   Callback = function(x)
+    getgenv().Height = x
+   end,
+})
+local Section = Tab3:CreateSection("AA-Antis")
+local Toggle = Tab3:CreateToggle({
+   Name = "Blatant-Rage",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+getgenv().BlatantAA = true
+
+local Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+while getgenv().BlatantAA == true  do
+    task.wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(Position) + Vector3.new(math.random(-15, 15), math.random(-15, 15), math.random(-15, 15))) * CFrame.Angles(math.rad(math.random(-180, 180)), math.rad(math.random(-180, 180)), math.rad(math.random(-180, 180)))
+end
+    elseif Desync == false then
+        getgenv().BlatantAA = false
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Reverse-Anti",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+     getgenv().reversed = true
+ game:GetService("RunService").Heartbeat:Connect(
+    function()
+        if getgenv().reversed then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame +- game.Players.LocalPlayer.Character.Humanoid.MoveDirection * getgenv().antilockspeed
+        end
+    end)
+    elseif Desync == false then
+        getgenv().reversed = false
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Anti-Sky",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+    getgenv().Sky = true 
+    getgenv().Amounts = 825
+game:GetService("RunService").heartbeat:Connect(function()
+    if getgenv().Sky ~= false then 
+    local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,      getgenv().Amounts,0) 
+    game:GetService("RunService").RenderStepped:Wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+    end 
+end)
+    elseif Desync == false then
+        getgenv().Sky = false 
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Anti-Underground",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+        getgenv().Underground = true 
+        getgenv().Amounts = 825
+game:GetService("RunService").heartbeat:Connect(function()
+    if getgenv().Underground ~= false then 
+    local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,-         getgenv().Amounts,0) 
+    game:GetService("RunService").RenderStepped:Wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+    end 
+end)
+    elseif Desync == false then
+            getgenv().Underground = false
+        end
+   end,
+})
+local Section = Tab3:CreateSection("Desyncs")
+local Toggle = Tab3:CreateToggle({
+   Name = "Normal-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+        getgenv().CrazyAnti = true 
+game:GetService("RunService").heartbeat:Connect(function()
+    if getgenv().CrazyAnti ~= false then 
+    local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(getgenv().X,getgenv().Y,getgenv().Z) 
+    game:GetService("RunService").RenderStepped:Wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+    end 
+end)
+    elseif Desync == false then
+         getgenv().CrazyAnti = false 
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Jumpable-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+    getgenv().Jumpable = true
+    game.RunService.Heartbeat:Connect(function()
+        if getgenv().Jumpable == true then    
+        local CurrentVelocity = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(getgenv().X,getgenv().Y,getgenv().Z)
+        game.RunService.RenderStepped:Wait()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = CurrentVelocity
+        end    
+    end)
+    elseif Desync == false then
+        getgenv().Jumpable = false
+    end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Spinnable-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+        getgenv().Spin = true
+    game.RunService.Heartbeat:Connect(function()
+    if getgenv().Spin then
+    local CurrentVelocity = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(0,math.rad(0),0)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(0,math.rad(7),0)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(getgenv().X,getgenv().Y,getgenv().Z)
+    game.RunService.RenderStepped:Wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = CurrentVelocity
+        end
+    end)
+    elseif Desync == false then
+        getgenv().Spin = false
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Word-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+        getgenv().worddot = true
+game:GetService("RunService").Heartbeat:Connect(function()
+        if getgenv().worddot == true then
+                local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+                game:GetService("RunService").RenderStepped:Wait()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+        end
+end)
+    elseif Desync == false then
+        getgenv().worddot = false
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Velocity-Changer",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+    getgenv().VelocityChanger = true
+    getgenv().Velocity = Vector3.new(getgenv().X,getgenv().Y,getgenv().Z)
+
+
+--// main scapt | realkscapter... omg
+local Players     = game:GetService("Players")
+local RunService  = game:GetService("RunService")
+
+local LocalPlayer = Players.LocalPlayer
+local Character   = LocalPlayer.Character
+local RootPart    = Character:FindFirstChild("HumanoidRootPart")
+
+local Heartbeat, RStepped, Stepped = RunService.Heartbeat, RunService.RenderStepped, RunService.Stepped
+
+LocalPlayer.CharacterAdded:Connect(function(NewCharacter)
+   Character = NewCharacter
+end)
+
+local RVelocity, YVelocity = nil, 0.1
+
+while true do
+   if VelocityChanger then
+       --// this a dumb check asnilsadsa
+       if (not RootPart) or (not RootPart.Parent) or (not RootPart.Parent.Parent) then
+           warn("weird ahh died")
+           RootPart = Character:FindFirstChild("HumanoidRootPart")
+       else
+           RVelocity = RootPart.Velocity
+   
+           RootPart.Velocity = type(Velocity) == "vector" and Velocity or Velocity(RVelocity)
+       
+           RStepped:wait()
+       
+           RootPart.Velocity = RVelocity
+       end
+   end
+   
+   Heartbeat:wait()
+end
+    elseif Desync == false then
+        getgenv().VelocityChanger = false
+        end
+   end,
+})
+local Section = Tab3:CreateSection("Paid-Desyncs")
+local Button = Tab3:CreateButton({
+   Name = "Network-Sleeper",
+   Callback = function()
+       NotifyLib.prompt('Recommend to use with Walkable Desync', '', 2)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/network/main/AC'))()
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Oblivity-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+        getgenv().PastedSources = true
+
+function RandomNumberRange(a)
+    return math.random(-a * 100, a * 100) / 100
+end
+
+function RandomVectorRange(a, b, c)
+    return Vector3.new(RandomNumberRange(a), RandomNumberRange(b), RandomNumberRange(c))
+end
+
+
+local DesyncTypes = {}
+game:GetService("RunService").Heartbeat:Connect(function()
+    if getgenv().PastedSources == true then
+        DesyncTypes[1] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+        DesyncTypes[2] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity
+
+        local SpoofThis = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+
+        SpoofThis = SpoofThis * CFrame.new(Vector3.new(0, 0, 0))
+        SpoofThis = SpoofThis * CFrame.Angles(math.rad(RandomNumberRange(180)), math.rad(RandomNumberRange(180)), math.rad(RandomNumberRange(180)))
+
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = SpoofThis
+
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(1, 1, 1) * 16384
+
+        game:GetService("RunService").RenderStepped:Wait()
+
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = DesyncTypes[1]
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = DesyncTypes[2]
+    end
+end)
+--hook
+local XDDDDDD = nil
+XDDDDDD = hookmetamethod(game, "__index", newcclosure(function(self, key)
+    if getgenv().PastedSources == true then
+        if not checkcaller() then
+            if key == "CFrame" and getgenv().PastedSources == true and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("Humanoid") and LocalPlayer.Character:FindFirstChild("Humanoid").Health > 0 then
+                if self == game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+                    return DesyncTypes[1] or CFrame.new()
+                elseif self == game:GetService("Players").LocalPlayer.Character.Head then
+                    return DesyncTypes[1] and DesyncTypes[1] + Vector3.new(0, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Size / 2 + 0.5, 0) or CFrame.new()
+                end
+            end
+        end
+    end
+    return XDDDDDD(self, key)
+end))
+    elseif Desync == false then
+        getgenv().PastedSources = false
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Walkable-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+       if Desync == true then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/network/main/Walkable'))()
+        wait(0.1)
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/network/main/Walkable'))()
+        wait(0.1)
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/network/main/Walkable'))()
+    elseif Desync == false then
+        getgenv().DDOsama1 = false
+        end
+   end,
+})
+local Toggle = Tab3:CreateToggle({
+   Name = "Unhittable-Desync",
+   CurrentValue = false,
+   Callback = function(Desync)
+    if Desync == true then
+        getgenv().DesynxRX = true
+
+function checkifalive(player) --checks if the player is alive 
+    if player.Character:FindFirstChild("Humanoid") and player.Character.Humanoid.Health ~= 1 and player.Character:FindFirstChild("Head") then
+        return true
+    end
+end
+
+function cframefix() --old version
+    if checkifalive(game.Players.LocalPlayer) then
+    for _, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Script") and v.Name ~= "Health" and v.Name ~= "Sound" and v:FindFirstChild("LocalScript") then
+            v:Destroy()
+        end
+    end
+    game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
+        repeat
+            task.wait()
+        until game.Players.LocalPlayer.Character
+        char.ChildAdded:Connect(function(child)
+            if child:IsA("Script") then 
+                if child:FindFirstChild("LocalScript") and checkifalive(game.Players.LocalPlayer) then
+                    child.LocalScript:FireServer()
+                end
+            end
+        end)
+    end)
+end
+end
+
+game:GetService("RunService").Heartbeat:Connect(function()--the actual script running
+    if getgenv().DesynxRX == true and checkifalive(game.Players.LocalPlayer) then
+        local olspo =  game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity cframefix() 
+          game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame *  CFrame.Angles(0,360, 0)
+     game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(olspo.X + math.random(1000,10000) ,olspo.Y + math.random(1000,1000),olspo.Z + math.random(1000,10000))
+     game:GetService("RunService").RenderStepped:wait()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity =  olspo
+        game:GetService("RunService").RenderStepped:wait()
+    end
+end)
+    elseif Desync == false then
+        getgenv().DesynxRX = false
+        end
+   end,
+})
+local Section = Tab4:CreateSection("AA-Configuration")
+local Slider = Tab4:CreateSlider({
+   Name = "AA-Amount",
+   Range = {-1000, 1000},
+   Increment = 1,
+   Suffix = "XYZ",
+   CurrentValue = 0,
+   Callback = function(Amount)
+   getgenv().Amounts = Amount
+   end,
+})
+local Section = Tab4:CreateSection("Reverse-Configuration")
+local Slider = Tab4:CreateSlider({
+   Name = "Reverse-Amount",
+   Range = {0.06, 0.6},
+   Increment = 0.06,
+   Suffix = "Speed",
+   CurrentValue = 0,
+   Callback = function(Amount)
+   getgenv().antilockspeed = Amount
+   end,
+})
+local Section = Tab4:CreateSection("Desync-Configuration")
+local Slider = Tab4:CreateSlider({
+   Name = "X-Amount",
+   Range = {-1000, 1000},
+   Increment = 1,
+   Suffix = "X",
+   CurrentValue = 0,
+   Callback = function(Amount)
+   getgenv().X = Amount
+   end,
+})
+local Slider = Tab4:CreateSlider({
+   Name = "Y-Amount",
+   Range = {-1000, 1000},
+   Increment = 1,
+   Suffix = "Y",
+   CurrentValue = 0,
+   Callback = function(Amount)
+   getgenv().Y = Amount
+   end,
+})
+local Slider = Tab4:CreateSlider({
+   Name = "Z-Amount",
+   Range = {-1000, 1000},
+   Increment = 1,
+   Suffix = "Z",
+   CurrentValue = 0,
+   Callback = function(Amount)
+   getgenv().Z = Amount
+   end,
+})
+local Section = Tab5:CreateSection("Desync-Resolver")
+local Button = Tab5:CreateButton({
+   Name = "Universal-Resolver",
+   Callback = function()
+getgenv().MichaelJackson = true --/keep this true
+getgenv().ArcaneBeNigga = false --/ toggle true if u want it to be forever
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ArcaneAw/resolver/main/Resolver1"))()
+   end,
+})
+local Button = Tab5:CreateButton({
+   Name = "Universal-Resolver2",
+   Callback = function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ArcaneAw/resolver/main/Resolver2'))()
+   end,
+})
+local Button = Tab5:CreateButton({
+   Name = "Linear-Resolver",
+   Callback = function()
+        local a=setmetatable({},{__index=function(b,c)local d=game.GetService(game,c)if d then b[c]=d end;return d end})local e=a.Players.LocalPlayer;local function f(g)local h=false;local i;local j;local function k(l)i=l;repeat wait()j=l:FindFirstChild("HumanoidRootPart")until j;h=false end;k(g.Character or g.CharacterAdded:Wait())g.CharacterAdded:Connect(k)a.RunService.Heartbeat:Connect(function()if i and i:IsDescendantOf(workspace)and(j and j:IsDescendantOf(i))then if j.AssemblyAngularVelocity.Magnitude>50 or j.AssemblyLinearVelocity.Magnitude>100 then if h==false then game.StarterGui:SetCore("ChatMakeSystemMessage",{Text="Fling Exploit detected, Player: "..tostring(g),Color=Color3.fromRGB(255,200,0)})end;h=true;for m,n in ipairs(i:GetDescendants())do if n:IsA("BasePart")then n.CanCollide=false;n.AssemblyAngularVelocity=Vector3.new(0,0,0)n.AssemblyLinearVelocity=Vector3.new(0,0,0)n.CustomPhysicalProperties=PhysicalProperties.new(0,0,0)end end;j.CanCollide=false;j.AssemblyAngularVelocity=Vector3.new(0,0,0)j.AssemblyLinearVelocity=Vector3.new(0,0,0)j.CustomPhysicalProperties=PhysicalProperties.new(0,0,0)end end end)end;for m,n in ipairs(a.Players:GetPlayers())do if n~=e then f(n)end end;a.Players.PlayerAdded:Connect(f)local o=nil;a.RunService.Heartbeat:Connect(function()pcall(function()local j=e.Character.PrimaryPart;if j.AssemblyLinearVelocity.Magnitude>250 or j.AssemblyAngularVelocity.Magnitude>250 then j.AssemblyAngularVelocity=Vector3.new(0,0,0)j.AssemblyLinearVelocity=Vector3.new(0,0,0)j.CFrame=o;game.StarterGui:SetCore("ChatMakeSystemMessage",{Text="You were flung. Neutralizing velocity.",Color=Color3.fromRGB(255,0,0)})elseif j.AssemblyLinearVelocity.Magnitude<50 or j.AssemblyAngularVelocity.Magnitude>50 then o=j.CFrame end end)end)
+   end,
+})
+local Button = Tab5:CreateButton({
+   Name = "HVH-Resolver",
+   Callback = function()
+getgenv().nagga = true 
+while true do 
+    game:GetService("RunService").heartbeat:Wait()
+        if getgenv().nagga == true then 
+            local character = game.Players.LocalPlayer.Character.HumanoidRootPart
+            local lastPosition = character.Position
+        task.wait()
+            local currentPosition = character.Position
+            local velocity = (currentPosition - lastPosition) * 58
+            local lastPosition = currentPosition
+        character.AssemblyLinearVelocity = velocity 
+        character.Velocity = velocity 
+        end 
+    end
+   end,
+})
+local Section = Tab5:CreateSection("Network-Resolver")
+local Button = Tab5:CreateButton({
+   Name = "NetworkSleep-Resolver",
+   Callback = function()
+        game:GetService('RunService').Heartbeat:connect(function()
+   for i, v in pairs(workspace:GetDescendants()) do
+           if v:IsA("BasePart") then
+               sethiddenproperty(v, "NetworkIsSleeping", true)
+        end
+   end
+end)
+   end,
+})
+local Section = Tab5:CreateSection("AA-Resolver")
+local Button = Tab5:CreateButton({
+   Name = "AA-Resolver",
+   Callback = function()
+        			  game:GetService("StarterGui"):SetCore("SendNotification", { 
+                    Title = "AA-Resolver";
+                    Text = "Doesnt resolve Desync";
+                    Icon = "rbxthumb://type=Asset&id=&w=150&h=150"})
+                    Duration = 6;
+    local RunService = game:GetService("RunService")
+
+local function zeroOutYVelocity(hrp)
+    hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)
+    hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)
+end
+
+local function onPlayerAdded(player)
+    player.CharacterAdded:Connect(function(character)
+        local hrp = character:WaitForChild("HumanoidRootPart")
+        zeroOutYVelocity(hrp)
+    end)
+end
+
+local function onPlayerRemoving(player)
+    player.CharacterAdded:Disconnect()
+end
+
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+game.Players.PlayerRemoving:Connect(onPlayerRemoving)
+
+RunService.Heartbeat:Connect(function()
+    pcall(function()
+        for i, player in pairs(game.Players:GetChildren()) do
+            if player.Name ~= game.Players.LocalPlayer.Name then
+                local hrp = player.Character.HumanoidRootPart
+                zeroOutYVelocity(hrp)
+            end
+        end
+    end)
+end)
+   end,
+})
+local Button = Tab5:CreateButton({
+   Name = "AACam-Resolver",
+   Callback = function()
+local Target = game.Players.LocalPlayer --camlock resolver
+
+local Y = -0
+game:GetService("RunService").RenderStepped:Connect(function()
+    for i,v in pairs(game.Players:GetPlayers()) do
+        Target = v.Name 
+        if Target ~= game.Players.LocalPlayer.Name then
+        old_vel = game.Players[Target].Character.HumanoidRootPart.Velocity
+        game.Players[Target].Character.HumanoidRootPart.Velocity = Vector3.new(old_vel.X, Y, old_vel.Z)
+    end
+    end
+end) 
+   end,
+})
+local Paragraph = Tab6:CreateParagraph({Title = "Info", Content = "UI-Origin/Rayfield/Script Made By Arcane#1838"})
+local Section = Tab6:CreateSection("Script contains paid content")
+local Section = Tab6:CreateSection("Any attempts of cracking or tampering on this script will be immediately penalized with a blacklist")
+local Section = Tab6:CreateSection("Enjoy.")
+loadstring(game:HttpGet('\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\75\85\75\71\69\83\116\105'))()--this bypasses new anti cheat in most hood games
+--if u wonder why this code is so short - it was obfuscated because i dont want my code to get in the wrong hands to be open sourced since this anti cheat is rare
